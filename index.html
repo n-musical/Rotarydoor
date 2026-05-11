@@ -139,14 +139,14 @@ body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: va
 <!-- 홈 -->
 <div class="sc on" id="sc-home">
   <div style="padding:20px 20px 0;">
-    <div style="font-size:28px;font-weight:700;color:var(--navy);">커튼콜 🎭</div>
+    <div style="font-size:28px;font-weight:700;color:var(--navy);">회전문 🎭</div>
     <div style="font-size:12px;color:var(--mu);margin-top:2px;">오늘도 커튼콜!</div>
   </div>
   <div id="home-banner" style="display:none;" class="banner">
     <div style="font-size:26px;">🎭</div>
     <div>
       <div id="banner-txt" style="font-size:14px;font-weight:700;color:var(--navy);"></div>
-      <div style="font-size:11px;color:var(--mu);margin-top:2px;">관람 후 체크인을 잊지 마세요</div>
+      <div style="font-size:11px;color:var(--mu);margin-top:2px;">관람 후 등록을 잊지 마세요</div>
     </div>
   </div>
   <div class="stit">진행 중인 공연</div>
@@ -253,7 +253,8 @@ body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: va
       <button class="cb" onclick="changeCnt(1)">+</button>
     </div>
     <label class="lbl">도장 모양</label>
-    <div class="epwrap"><div class="epgrid" id="ep-grid"></div></div>
+    <div class="epwrap"onclick="openEmojiKeyboard()"><div class="epgrid" id="ep-grid"></div></div>
+    <input id="emoji-input" type="text" maxlength="2" style="position:absolute; opacity:0;">
     <label class="lbl">혜택 구간 설정</label>
     <div id="rew-rows"></div>
     <button class="addrb" onclick="addRewRow('rew-rows')">+ 혜택 구간 추가</button>
@@ -1093,3 +1094,14 @@ initCal();
 </script>
 </body>
 </html>
+
+function openEmojiKeyboard() {
+  const input = document.getElementById('emoji-input');
+
+  input.focus();
+
+  input.oninput = function() {
+    selEmoji = input.value;
+    input.value = '';
+  };
+}
