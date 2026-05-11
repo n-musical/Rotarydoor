@@ -254,7 +254,19 @@ body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: va
     </div>
     <label class="lbl">도장 모양</label>
     <div class="epwrap"onclick="openEmojiKeyboard()"><div class="epgrid" id="ep-grid"></div></div>
-    <input id="emoji-input" type="text" maxlength="2" style="position:absolute; opacity:0;">
+    <input
+  id="emoji-input"
+  type="text"
+  maxlength="2"
+  placeholder="😊"
+  style="
+    width:40px;
+    height:40px;
+    font-size:24px;
+    border:none;
+    background:transparent;
+  "
+>
     <label class="lbl">혜택 구간 설정</label>
     <div id="rew-rows"></div>
     <button class="addrb" onclick="addRewRow('rew-rows')">+ 혜택 구간 추가</button>
